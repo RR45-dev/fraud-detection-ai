@@ -1,0 +1,29 @@
+syntax = "proto3";
+package fraud;
+
+// Shared contract between the Python scoring service and the Node.js
+// gateway. The gateway loads this file dynamically at runtime via
+// @grpc/proto-loader (no codegen needed on the Node side); the Python
+// side generates static stubs from it at container build time.
+service FraudScorer {
+  rpc ScoreTransaction (TransactionRequest) returns (ScoreResponse);
+}
+
+message TransactionRequest {
+  string transaction_id = 1;
+  string account_id = 2;
+  double amount = 3;
+  string merchant_category = 4;
+  double lat = 5;
+  double lon = 6;
+  double home_lat = 7;
+  double home_lon = 8;
+  int64 hour_of_day = 9;
+}
+
+message ScoreResponse {
+  string transaction_id = 1;
+  double risk_score = 2;
+  bool flagged = 3;
+  repeated string similar_transaction_ids = 4;
+}
