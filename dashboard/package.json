@@ -1,0 +1,19 @@
+{
+  "name": "fraud-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^5.4.5",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "eslintConfig": { "extends": ["react-app"] },
+  "browserslist": { "production": [">0.2%", "not dead"], "development": ["last 1 chrome version"] }
+}
